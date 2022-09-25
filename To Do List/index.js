@@ -18,7 +18,6 @@ addTodo = () => {
     todoContainer.classList.add("todoContainer");
     inputField.value = "";
     
-  
 }
 
 removeTodo = () => {
@@ -30,7 +29,5 @@ removeTodo = () => {
         todoContainer.removeChild(list);
         todoContainer.removeChild(removeBtn)
     })
-
-   
 
 }
