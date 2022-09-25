@@ -34,5 +34,3 @@ removeTodo = () => {
    
 
 }
-//how to create button attribute using js?
-// how to use if else statement for button?
