@@ -1,0 +1,30 @@
+body{
+    font-family: sans-serif  ;
+}
+
+.main-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    height: 50rem;
+}
+
+#question{
+    font-size: 3.5rem;
+}
+
+
+
+.submit{
+    text-align: center;
+}
+.scoreArea{
+    font-size: 3rem;
+  
+}
+
+.inner-div button{
+    margin: 4rem;
+    font-size: 2rem;
+}
