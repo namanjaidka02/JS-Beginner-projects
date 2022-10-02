@@ -6,25 +6,41 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-   
+    border: groove 1px grey;
     height: 50rem;
+    background-color: gainsboro;
+    border-radius: 30px;
+    margin: 5rem;
 }
 
 #question{
     font-size: 3.5rem;
+    padding: 2rem;
+    
 }
 
-
-
-.submit{
-    text-align: center;
-}
 .scoreArea{
     font-size: 3rem;
-  
+    text-align: center;
+    color: purple;
+    padding-top: 8rem;
 }
 
-.inner-div button{
+.optionBtn{
     margin: 4rem;
     font-size: 2rem;
+    border-radius:20px ;
+    padding: 1rem;
+    border: groove transparent;
+    
+   
 }
+
+.optionBtn:hover{
+    cursor: pointer;
+    transition-duration:900ms;
+    background-color: darkslategray;
+ }
+
+
+
