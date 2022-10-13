@@ -61,17 +61,36 @@ let questions = [
   },
 ];
 
+//assigning dom elements to js variables
+
 let question = document.getElementById("question");
 let op1 = document.getElementById("op1");
 let op2 = document.getElementById("op2");
 let op3 = document.getElementById("op3");
 let op4 = document.getElementById("op4");
 let scoreDisplay = document.getElementById("score");
+
+// assigning variables outside the functions to make their scope global.
+
 let score = 0;
 let questionCount = 0;
 let selectedAnswer = "";
 let questionList;
 
+//this function will be called when page is refreshed or loaded
+function onLoad() {
+  const countFromLocal = JSON.parse(localStorage.getItem("currentQues"));
+  questionCount = countFromLocal ? countFromLocal : 0;
+
+  const scoreFromLocal = JSON.parse(localStorage.getItem("currentScore"));
+  score = scoreFromLocal ? scoreFromLocal : 0;
+
+  loadQuestion();
+  alert("welcome " + localStorage.getItem("userName"));
+  scoreDisplay.innerHTML = score;
+}
+
+// buttons k click hone par unki value loadQuestion() wale function se uthe
 op1.addEventListener("click", () => {
   selectedAnswer = op1.innerHTML;
   onBtnClick();
@@ -92,6 +111,7 @@ op4.addEventListener("click", () => {
   onBtnClick();
 });
 
+// assigning question and answers to their respective variables using dot notation
 let loadQuestion = () => {
   question.innerHTML = questions[questionCount].q;
 
@@ -102,25 +122,25 @@ let loadQuestion = () => {
 };
 
 function onBtnClick() {
-  if (questionCount >= 11) {
+  // this will return the question count when the question reaches number 10
+  if (questionCount >= 10) {
     return;
   }
-
+  // this if else statement is for when user select the option,
+  // if the selected option is right the score will ++ otherwise --.
   if (selectedAnswer === questions[questionCount].answer) {
     score += 1;
   } else {
     score -= 1;
   }
-
+  // the questionCount will increase by 1 either the answer is correct or wrong
   questionCount += 1;
+
+  localStorage.setItem("currentQues", JSON.stringify(questionCount));
+  localStorage.setItem("currentScore", JSON.stringify(score));
+
+  // displaying score on html page
   scoreDisplay.innerHTML = score;
 
   loadQuestion();
 }
-
-loadQuestion();
-
-/*
-
-- cookies and localStorage
-*/
